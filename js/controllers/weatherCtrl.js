@@ -1,4 +1,13 @@
+/**
+ * [weatherService]
+ * @param  {[type]} $http
+ * @param  {[type]} $q
+ * @return {api functions} [description]
+ */
 getset.factory('weatherService', function($http, $q) {
+	/**
+	 * CONSTANTES
+	 */
 	var WEATHER_API_START      = 'http://api.openweathermap.org/data/2.5/';
 	var WEATHER_API_CONSTANTES = '&mode=json&lang=fr&units=metric&APPID=e7b120e3590db1d3b910e3c21394345d';
 
@@ -52,8 +61,23 @@ getset.factory('weatherService', function($http, $q) {
 });
 
 
+/**
+ * [WeatherCtrl]
+ * @param  {[type]} $scope
+ * @param  {[type]} $http
+ * @param  {[type]} $window
+ * @param  {[type]} weatherService
+ */
 getset.controller("WeatherCtrl", function($scope, $http, $window, weatherService) {
 
+	/**
+	 * CONSTANTES
+	 */
+	var WEATHER_URL = "data/wheater.json";
+
+	/**
+	 * $scope vars
+	 */
 	$scope.city      = "";
 	$scope.latitude  = '';
 	$scope.longitude = '';
@@ -62,8 +86,11 @@ getset.controller("WeatherCtrl", function($scope, $http, $window, weatherService
 	$scope.weather   = {};
 	$scope.forecast  = {};
 
+	/**
+	 * [loadCodes description]
+	 */
     $scope.loadCodes = function() {
-		$http({method: 'GET', url: 'data/data.json'})
+		$http({method: 'GET', url: WEATHER_URL})
 			.success(function(data, status, headers, config) {
 				$scope.codes = data.weather;
 			})
@@ -72,16 +99,28 @@ getset.controller("WeatherCtrl", function($scope, $http, $window, weatherService
 			});
 	};
 
+	/**
+	 * [getGeoloc description]
+	 */
 	$scope.getGeoloc = function() {
+		// tranform geoloc btn to loading action
 		$('#geolocBtn').children('i').addClass('fa-spinner').addClass('fa-spin').removeClass('fa-location-arrow');
+
+		// get geoloc current position
 		$window.navigator.geolocation.getCurrentPosition($scope.geoSuccess, $scope.geoError, {timeout: 10000});
 	};
 
+	/**
+	 * [geoSuccess description]
+	 * @param  {obj} position
+	 */
 	$scope.geoSuccess = function(position) {
+		// update $scope latitude and longitude
 		$scope.$apply(function() {
 			$scope.latitude		= position.coords.latitude;
 			$scope.longitude	= position.coords.longitude;
 
+			// update $scope forecast
 			weatherService.getDailyForecastByCoord(position.coords).then(function(data) {
 				$scope.updateForecast(data);
 			});
@@ -89,18 +128,26 @@ getset.controller("WeatherCtrl", function($scope, $http, $window, weatherService
 		});
 	};
 
+	/**
+	 * [geoError description]
+	 * @param  {[type]} error
+	 */
 	$scope.geoError = function(error) {
 		alert('error');
 	};
 
+	/**
+	 * [getWeather description]	 
+	 */
 	$scope.getWeather = function() {
-
 		weatherService.getWeather($scope.city).then(function(data) {
 			$scope.updateForecast(data);
 		});
 	};
 
-
+	/**
+	 * [getDailyForecast description]
+	 */
 	$scope.getDailyForecast = function() {
 
 		weatherService.getDailyForecast($scope.city).then(function(data) {
@@ -108,10 +155,18 @@ getset.controller("WeatherCtrl", function($scope, $http, $window, weatherService
 		});
 	};
 
+	/**
+	 * [updateWeather description]
+	 * @param  {obj} data
+	 */
 	$scope.updateWeather = function(data) {
 		console.log(data);
 	};
 
+	/**
+	 * [updateForecast description]
+	 * @param  {obj} data
+	 */
 	$scope.updateForecast = function(data) {
 		for(var key in data.list) {
 
@@ -152,29 +207,38 @@ getset.controller("WeatherCtrl", function($scope, $http, $window, weatherService
 			
 		}
 		
+		// update $scope forecast
 		$scope.forecast = data;
 
+		// remove loading action to geoloc btn
 		$('#geolocBtn').children('i').removeClass('fa-spinner').removeClass('fa-spin').addClass('fa-location-arrow');
 	};
 
+	/**
+	 * [onClickPanelTitle description]
+	 * @param  {event} event
+	 */
 	$scope.onClickPanelTitle = function(event) {
 		var $panel = $(event.currentTarget).next('.panel-collapse');
 		$panel.slideToggle(400).toggleClass('fadeInUp').toggleClass('fadeOutDown');
 	};
 	
 
-
+	/**
+	 * [getIconFromCode description]
+	 * @param  {string} code
+	 * @return {icon | boolean}
+	 */
     $scope.getIconFromCode = function(code) {
 		for(var key in $scope.codes) {
 			if(code == $scope.codes[key].code) {
 				return $scope.codes[key].icon;
 			}
 		}
-
 		return true;
     };
 
-    // launch
+    // launch geoloc
     $scope.getGeoloc();
 
 });

@@ -17,8 +17,8 @@ getset.controller("WebradioCtrl", function($scope, $timeout, $http) {
 	var $playerFrame = $('.playerFrame');		// div.playerFrame
 	var $playerAudio = $('.playerFrame audio'); // div.playerFrame > audio
 
-	/*
-	$scope vars
+	/**
+	 * $scope vars
 	 */
 	$scope.radios = [];							// all radios
 
@@ -31,7 +31,7 @@ getset.controller("WebradioCtrl", function($scope, $timeout, $http) {
 				$scope.radios = data.webradios;
 			})
 			.error(function(data, status, headers, config) {
-				
+				alert('error');
 			});
 	};
 
