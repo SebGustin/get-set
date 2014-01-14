@@ -1,0 +1,22 @@
+{
+	"weather" : [
+		{"code": "01d", "icon": "Sun.svg"},
+		{"code": "01n", "icon": "Moon.svg"},
+		{"code": "02d", "icon": "Cloud-Sun.svg"},
+		{"code": "02n", "icon": "Cloud-Moon.svg"},
+		{"code": "03d", "icon": "Cloud.svg"},
+		{"code": "03n", "icon": "Cloud.svg"},
+		{"code": "04d", "icon": "Cloud-Rain-Alt.svg"},
+		{"code": "04n", "icon": "Cloud-Rain-Moon-Alt.svg"},
+		{"code": "09d", "icon": "Cloud-Drizzle.svg"},
+		{"code": "09n", "icon": "Cloud-Drizzle.svg"},
+		{"code": "10d", "icon": "Cloud-Drizzle-Sun.svg"},
+		{"code": "10n", "icon": "Cloud-Drizzle-Moon.svg"},
+		{"code": "11d", "icon": "Cloud-Lightning.svg"},
+		{"code": "11n", "icon": "Cloud-Lightning.svg"},
+		{"code": "13d", "icon": "Cloud-Snow.svg"},
+		{"code": "13n", "icon": "Cloud-Snow.svg"},
+		{"code": "50d", "icon": "Cloud-Fog-Alt.svg"},
+		{"code": "50n", "icon": "Cloud-Fog-Alt.svg"}
+	]
+}
