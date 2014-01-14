@@ -2,28 +2,28 @@
 	"webradios" : [
 		{
 		"name": "Fip",
-		"description": "L'univers de Fip... une radio musicale éclectique, ne fermant son antenne à aucun genre ni aucune époque : jazz, chanson française, musiques du monde, pop-rock, blues, musiques électroniques, musique classique, bandes originales de films. Fip diffuse plus de 300 titres différents par jour et toujours en direct. La voix de Fip donne la couleur à l'antenne. Le programme musical varié et ininterrompu, est ponctué de rendez-vous réalisés par une équipe d'animatrices qui déniche les bons plans et les évènements culturels incontournables.",
+		"description": "The world of Fip ... an eclectic music radio, not closing its office in any kind or any time: jazz, French chanson, world music, pop-rock, blues, electronic music, classical music, movie soundtracks. Fip broadcasts more than 300 different titles per day and still live. Voice Fip gives color to the antenna. The varied and uninterrupted music program is punctuated by appointment made ​​by a team of facilitators who unearths tips and essential cultural events.",
 		"url": "http://mp3lg.tdf-cdn.com/fip/all/fiphautdebit.mp3",
 		"thumb": "http://www.fipradio.fr/sites/all/themes/fip2/images/logo_121x121.png",
 		"isPlayed": false
 		},
 		{
 		"name": "RTL",
-		"description": "Suivez et partagez l'information en direct : info, sport, culture-loisirs, divertissement sur RTL.fr. Écoutez et réécoutez vos émissions favorites en ligne, gratuitement et 24h24.",
+		"description": "Follow and share live information News, sport, leisure, culture, entertainment RTL.fr. Listen and listen again to your favorite shows online for free 24:24.",
 		"url": "http://streaming.radio.rtl.fr/rtl-1-44-64.mp3",
 		"thumb": "http://static.rtl.fr/www/img/live/logo.gif",
 		"isPlayed": false
 		},
 		{
 		"name": "France Inter",
-		"description": "France Inter un site du groupe Radio France. Retrouvez le direct, les émissions, les podcasts, l'info, les vidéos...",
+		"description": "France Inter a group site Radio France. Find the live broadcasts, podcasts, info, videos ...",
 		"url": "http://mp3lg.tdf-cdn.com/franceinter/all/franceinterhautdebit.mp3",
 		"thumb": "http://www.franceinter.fr/sites/all/themes/franceinter/logo.png",
 		"isPlayed": false
 		},
 		{
 		"name": "France Culture",
-		"description": "Par les bonnes ondes hertziennes ou numériques, transmettre, partager, échanger sur les idées, les savoirs et la connaissance. Et pour découvrir la diversité des programmes de France Culture, découvrez sur son site tous ses univers : Spectacles, Société, Sciences, Littérature, Idées, Politique/Economie, Arts visuels, Création radiophonique, Evasion, Histoire, Musiques ...",
+		"description": "For good or digital radio waves, transmit, share, discuss ideas, knowledge and knowledge. And discover the diversity of programs France Culture, discover on its website all worlds: Entertainment, Society, Science, Literature, Ideas, Politics / Economics, Visual Arts, Design radio, Escape, History, Music ...",
 		"url": "http://mp3lg.tdf-cdn.com/franceculture/all/franceculturehautdebit.mp3",
 		"thumb": "http://www.franceculture.fr/sites/all/themes/franceculture/images/logo.png",
 		"isPlayed": false

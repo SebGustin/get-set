@@ -43,8 +43,8 @@ getset.controller("WebradioCtrl", function($scope, $timeout, $http) {
 		radioDescription: '',
 		url             : '',
 		isPlaying       : false,
-		infosClock      : 'Aucun réveil',
-		infosPlayed     : 'Aucune Webradio',
+		infosClock      : 'No clock',
+		infosPlayed     : 'No Webradio',
 		clock           : clock,
 		clockTime       : 0,
 		clockTimer      : false,
@@ -65,7 +65,7 @@ getset.controller("WebradioCtrl", function($scope, $timeout, $http) {
 		$scope.addAudio($source);
 
 		// update player infos
-		this.player.infosPlayed      = 'Vous écoutez ' + radio.name;
+		this.player.infosPlayed      = "You're listening " + radio.name;
 		this.player.url              = radio.url;
 		this.player.isPlaying        = true;
 		this.player.radioName        = radio.name;
@@ -115,7 +115,7 @@ getset.controller("WebradioCtrl", function($scope, $timeout, $http) {
 		$playerFrame.removeClass('slideInDown').addClass('slideOutUp');
 
 		// reset player infos
-		this.player.infosPlayed      = 'Aucune Webradio';
+		this.player.infosPlayed      = 'No Webradio';
 		this.player.url              = '';
 		this.player.isPlaying        = false;
 		this.player.radioName        = '';
@@ -154,7 +154,7 @@ getset.controller("WebradioCtrl", function($scope, $timeout, $http) {
 			$scope.player.clockTimer = $timeout(function() {
 
 				// update player infos
-				$scope.player.infosClock = 'Aucun réveil';
+				$scope.player.infosClock = 'No clock';
 				$scope.player.isClocked  = false;
 				$scope.player.clockName  = '';
 				$scope.player.clockTimer = false;
@@ -172,7 +172,7 @@ getset.controller("WebradioCtrl", function($scope, $timeout, $http) {
 			$scope.player.isClocked  = false;
 			$scope.player.clockName  = '';
 			$scope.player.clockTimer = false;
-			$scope.player.infosClock = 'Aucun réveil';
+			$scope.player.infosClock = 'No clock';
 		}
 	};
 
@@ -236,7 +236,7 @@ getset.controller("WebradioCtrl", function($scope, $timeout, $http) {
 
 		// update player clockTime info
 		$scope.player.clockTime = ((diff.hours * 60 * 60) + (diff.minutes * 60)) * 1000;
-		this.player.infosClock  = 'Vous serez réveillez à ' + $scope.player.clock + ' avec ' + radio.name;
+		this.player.infosClock  = 'You will wake up at ' + $scope.player.clock + ' with ' + radio.name;
 	};
 
 });

@@ -17,12 +17,20 @@
 		"controllerUrl": "js/controllers/webradioCtrl.js"
 		},
 		{
-		"name"       : "Météo",
+		"name"       : "Weather",
 		"icon"       : "fa fa-cloud",
 		"url"        : "/weather",
 		"templateUrl": "templates/weather.html",
 		"controller" : "WeatherCtrl",
 		"controllerUrl": "js/controllers/weatherCtrl.js"
+		},
+		{
+		"name"       : "Class Diagram",
+		"icon"       : "fa fa-sitemap",
+		"url"        : "/class-diagram",
+		"templateUrl": "templates/classDiagram.html",
+		"controller" : "ClassDiagramCtrl",
+		"controllerUrl": "js/controllers/classDiagramCtrl.js"
 		}
 	]
 }

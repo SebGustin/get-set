@@ -9,7 +9,7 @@ getset.factory('weatherService', function($http, $q) {
 	 * CONSTANTES
 	 */
 	var WEATHER_API_START      = 'http://api.openweathermap.org/data/2.5/';
-	var WEATHER_API_CONSTANTES = '&mode=json&lang=fr&units=metric&APPID=e7b120e3590db1d3b910e3c21394345d';
+	var WEATHER_API_CONSTANTES = '&mode=json&lang=en&units=metric&APPID=e7b120e3590db1d3b910e3c21394345d';
 
 	return {
 		getWeather: function(city) {
