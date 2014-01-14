@@ -93,9 +93,10 @@ getset.controller("WeatherCtrl", function($scope, $http, $window, weatherService
 		$http({method: 'GET', url: WEATHER_URL})
 			.success(function(data, status, headers, config) {
 				$scope.codes = data.weather;
+				new message("success", "Weather is loaded");
 			})
 			.error(function(data, status, headers, config) {
-				alert('error');
+				new message("error", status + ", " + config.url);
 			});
 	};
 
@@ -133,7 +134,7 @@ getset.controller("WeatherCtrl", function($scope, $http, $window, weatherService
 	 * @param  {[type]} error
 	 */
 	$scope.geoError = function(error) {
-		alert('error');
+		new message("error","Geolocation seems to have a problem");
 	};
 
 	/**
