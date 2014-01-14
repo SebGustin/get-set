@@ -1,0 +1,64 @@
+<div class="app-panel">
+
+    <link rel="stylesheet" type="text/css" href="css/webradioCtrl.css">
+
+    <div class="row webradioCtrl" ng-controller="WebradioCtrl" ng-init="loadWebradios()">
+        <div class="col-lg-12">
+            <h2>Webradio <small>player</small></h2>
+            <section class="player" ng-model="player" ng-class="{isPlaying: player.isPlaying}">
+                <div class="input-group-wrapper">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button ng-click="stop()" class="btn btn-default btn-sm btn-stop"><i class="fa fa-stop"></i></button>
+                        </span>
+                        <p class="infos-bar">
+                            <span class="info" ng-model="player.infosPlayed">{{player.infosPlayed}}</span> 
+                            <span class="info-separator"> | </span>
+                            <span class="info" ng-model="player.infosClock">{{player.infosClock}}</span>
+                        </p>         
+                    </div><!-- /input-group -->
+                </div>
+            </section>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="col-md-4" ng-repeat="radio in radios" ng-class="{isPlayed: radio.isPlayed, isClocked: player.isClocked && player.clockName == radio.name}">
+            <div class="thumbnail">
+
+                <img class="thumb" ng-model="radio.thumb" ng-src="{{radio.thumb}}" alt="loading" ng-click="play(radio)" />
+
+                <div class="caption">
+
+                    <div>
+                        <div class="btn-group">
+                            <button ng-click="play(radio)" class="btn btn-default btn-sm btn-play"><i class="fa fa-play"></i></button> 
+                        </div>
+
+                        <div class="input-group-wrapper">
+                            <div class="input-group">
+                                <input ng-model="player.clock" ng-submit="dring(radio)" type="time" placeholder="hh:mm" class="form-control input-sm" />           
+                                <span class="input-group-btn">
+                                    <button ng-click="dring(radio)" class="btn btn-default btn-sm btn-dring"><i class="fa fa-bell"></i></button>
+                                </span>
+                            </div><!-- /input-group -->
+                        </div>
+                        <br />
+                        <div class="h3" ng-model="radio.name" ng-click="play(radio)">{{radio.name}}</div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="clearfix col-md-8 player-infos" ng-class="{hidden: !player.isPlaying}">
+                    <blockquote>
+                        <p>{{player.radioDescription}}</p>
+                      <small><cite title="Source Title">{{player.radioName}}</small>
+                    </blockquote>
+                </div>
+    </div> <!-- /.row -->
+</div>

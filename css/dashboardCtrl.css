@@ -1,0 +1,34 @@
+.widgetWrapper {
+	display:inline-block;
+	width:100px;
+	height:100px;
+	margin:10px;
+}
+
+.widgetWrapper>a {
+	text-align:center;
+	display: block;
+	height:100%;
+	padding:15px 5px 0 5px;
+	font-size:16px;
+	color:#333;
+	border-radius: 5px;
+	
+	background:rgba(0, 0, 0, 0.075);
+	text-decoration: none;
+}
+
+.widgetWrapper>a:hover {
+	background:rgba(255, 255, 255, 0.75);
+	color:#666;
+}
+
+.widgetWrapper>a>i {
+	font-size:40px;
+	display:block;
+	color:#333;
+}
+
+/*.widgetWrapper>a:hover>i {
+	color:white;
+}*/

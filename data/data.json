@@ -1,0 +1,53 @@
+{
+	"webradios" : [
+		{
+		"name": "Fip",
+		"description": "L'univers de Fip... une radio musicale éclectique, ne fermant son antenne à aucun genre ni aucune époque : jazz, chanson française, musiques du monde, pop-rock, blues, musiques électroniques, musique classique, bandes originales de films. Fip diffuse plus de 300 titres différents par jour et toujours en direct. La voix de Fip donne la couleur à l'antenne. Le programme musical varié et ininterrompu, est ponctué de rendez-vous réalisés par une équipe d'animatrices qui déniche les bons plans et les évènements culturels incontournables.",
+		"url": "http://mp3lg.tdf-cdn.com/fip/all/fiphautdebit.mp3",
+		"thumb": "http://www.fipradio.fr/sites/all/themes/fip2/images/logo_121x121.png",
+		"isPlayed": false
+		},
+		{
+		"name": "RTL",
+		"description": "Suivez et partagez l'information en direct : info, sport, culture-loisirs, divertissement sur RTL.fr. Écoutez et réécoutez vos émissions favorites en ligne, gratuitement et 24h24.",
+		"url": "http://streaming.radio.rtl.fr/rtl-1-44-64.mp3",
+		"thumb": "http://static.rtl.fr/www/img/live/logo.gif",
+		"isPlayed": false
+		},
+		{
+		"name": "France Inter",
+		"description": "France Inter un site du groupe Radio France. Retrouvez le direct, les émissions, les podcasts, l'info, les vidéos...",
+		"url": "http://mp3lg.tdf-cdn.com/franceinter/all/franceinterhautdebit.mp3",
+		"thumb": "http://www.franceinter.fr/sites/all/themes/franceinter/logo.png",
+		"isPlayed": false
+		},
+		{
+		"name": "France Culture",
+		"description": "Par les bonnes ondes hertziennes ou numériques, transmettre, partager, échanger sur les idées, les savoirs et la connaissance. Et pour découvrir la diversité des programmes de France Culture, découvrez sur son site tous ses univers : Spectacles, Société, Sciences, Littérature, Idées, Politique/Economie, Arts visuels, Création radiophonique, Evasion, Histoire, Musiques ...",
+		"url": "http://mp3lg.tdf-cdn.com/franceculture/all/franceculturehautdebit.mp3",
+		"thumb": "http://www.franceculture.fr/sites/all/themes/franceculture/images/logo.png",
+		"isPlayed": false
+		}
+	],
+	"weather" : [
+		{"code": "01d", "icon": "Sun.svg"},
+		{"code": "01n", "icon": "Moon.svg"},
+		{"code": "02d", "icon": "Cloud-Sun.svg"},
+		{"code": "02n", "icon": "Cloud-Moon.svg"},
+		{"code": "03d", "icon": "Cloud.svg"},
+		{"code": "03n", "icon": "Cloud.svg"},
+		{"code": "04d", "icon": "Cloud-Rain-Alt.svg"},
+		{"code": "04n", "icon": "Cloud-Rain-Moon-Alt.svg"},
+		{"code": "09d", "icon": "Cloud-Drizzle.svg"},
+		{"code": "09n", "icon": "Cloud-Drizzle.svg"},
+		{"code": "10d", "icon": "Cloud-Drizzle-Sun.svg"},
+		{"code": "10n", "icon": "Cloud-Drizzle-Moon.svg"},
+		{"code": "11d", "icon": "Cloud-Lightning.svg"},
+		{"code": "11n", "icon": "Cloud-Lightning.svg"},
+		{"code": "13d", "icon": "Cloud-Snow.svg"},
+		{"code": "13n", "icon": "Cloud-Snow.svg"},
+		{"code": "50d", "icon": "Cloud-Fog-Alt.svg"},
+		{"code": "50n", "icon": "Cloud-Fog-Alt.svg"}
+	],
+	"tools" : {}
+}

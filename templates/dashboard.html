@@ -1,0 +1,20 @@
+<div class="app-panel">
+
+    <link rel="stylesheet" type="text/css" href="css/dashboardCtrl.css">
+
+    <div class="row">
+    	<div class="col-lg-12">
+    		<h2>Dashboard</h2>
+    	</div>
+		
+		<div class="col-lg-12">
+	    	<div class="widgetWrapper" ng-repeat="page in pages" ng-class="{active: isPageActive(page.url)}">
+	    		<a href="#{{page.url}}"><i class="{{page.icon}}"></i> {{page.name}}</a>
+	    	</div>
+		</div>
+    </div>
+
+    <div class="row dashboardCtrl" ng-controller="DashboardCtrl">
+
+    </div>
+</div>

@@ -1,0 +1,28 @@
+{
+	"routes"     : [
+		{
+		"name"         : "Dashboard",
+		"icon"         : "fa fa-dashboard",
+		"url"          : "/dashboard",
+		"templateUrl"  : "templates/dashboard.html",
+		"controller"   : "DashboardCtrl",
+		"controllerUrl": "js/controllers/dashboardCtrl.js"
+		},
+		{
+		"name"       : "Webradio",
+		"icon"       : "fa fa-play",
+		"url"        : "/webradio",
+		"templateUrl": "templates/webradio.html",
+		"controller" : "WebradioCtrl",
+		"controllerUrl": "js/controllers/webradioCtrl.js"
+		},
+		{
+		"name"       : "Météo",
+		"icon"       : "fa fa-cloud",
+		"url"        : "/weather",
+		"templateUrl": "templates/weather.html",
+		"controller" : "WeatherCtrl",
+		"controllerUrl": "js/controllers/weatherCtrl.js"
+		}
+	]
+}

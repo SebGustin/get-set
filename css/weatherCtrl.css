@@ -1,0 +1,58 @@
+.weatherCtrl .weather-img {
+	width:128px;
+}
+
+.weatherCtrl .panel-weather {
+	/*width:2030px;
+	overflow-x: scroll;*/
+}
+
+.weatherCtrl .panel-weather .panel-heading {
+	position:relative;
+	height: 87px;
+	cursor: pointer;
+}
+
+.weatherCtrl .panel-weather .icon {
+	position:absolute;
+	left:-10px;
+	top:-6px;
+}
+
+.weatherCtrl .panel-weather .panel {
+	display:inline-block;
+	vertical-align: top;
+	width:290px;
+	text-align: right;
+	margin: 0 20px 20px 0;
+}
+
+.weatherCtrl .panel-weather .panel .panel-collapse {
+	display:none;
+}
+
+.weatherCtrl .panel-weather .panel .panel-body {
+	text-align:center;
+	padding: 4px 0 0 0;
+}
+
+.weatherCtrl .panel-weather .infos 
+{
+	display: inline-block;
+	vertical-align: top;
+	width:138px;
+	margin:0 0 4px 0;
+}
+
+.weatherCtrl .panel-weather .infos .badge {
+	font-weight: 500;
+}
+
+.weatherCtrl .panel-weather .infos .list-group-item {
+	text-align: left;
+	padding:5px;
+}
+
+.weatherCtrl .panel-weather .infos-sup {
+	text-align: left;
+}

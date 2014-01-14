@@ -1,0 +1,141 @@
+.webradioCtrl {}
+
+.webradioCtrl .player {margin-bottom: 20px;}
+
+
+.webradioCtrl .btn-group,
+.webradioCtrl .input-group-wrapper {
+	margin-top:10px;
+}
+
+.webradioCtrl .input-group-wrapper {
+	width: 100px;
+	display:inline-block;
+	vertical-align: middle;
+	margin-right: 16px;
+}
+
+.webradioCtrl .isPlayed .thumbnail {
+	border-color:rgba(53, 126, 189, 0.4);
+	background:rgba(53, 126, 189, 0.2);
+}
+
+.webradioCtrl .isPlayed .btn-play,
+.webradioCtrl .isClocked .btn-dring,
+.webradioCtrl .isPlaying .btn-stop
+{
+	background-color: #428BCA;
+    border-color: #357EBD;
+    color: #FFFFFF;
+}
+
+.webradioCtrl  .player-infos {
+	font-size: 0.9em;
+}
+
+.webradioCtrl  .player-infos blockquote {
+	border-color:rgba(53, 126, 189, 0.4);
+}
+
+.webradioCtrl  .player-infos blockquote small {
+	color: rgba(53, 126, 189, 1);
+}
+
+.webradioCtrl .thumb {
+	width:18%;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.webradioCtrl .caption {
+	display: inline-block;
+	width:78%;
+	padding:0;
+	vertical-align: middle;
+	text-align: right;
+}
+
+.webradioCtrl .caption .h3 {
+	display: inline-block;
+	vertical-align: middle;
+	text-align: right;
+	padding-left: 10px;
+	margin-bottom:-9px;
+}
+
+.webradioCtrl .player .input-group-wrapper {
+	width: 100%;
+}
+
+.webradioCtrl .input-player-infos {
+	width: 100%;
+} 
+
+.webradioCtrl .player .infos-bar {
+	border-radius: 0 3px 3px 0;
+    display: inline-block;
+    background-color: #EEEEEE;
+    font-size: 12px;
+    height: 30px;
+    line-height: 1.5;
+    padding: 5px 10px;
+    background-image: none;
+    border: 1px solid #CCCCCC;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555555;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    vertical-align: middle;
+    position: relative;
+	margin:0;
+    width: 250px;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+
+    -moz-animation: textSlideLeft 30s linear infinite;
+    -webkit-animation: textSlideLeft 30s linear infinite;
+    animation: textSlideLeft 30s linear infinite;
+}
+
+
+.webradioCtrl .player .infos-bar:before,
+.webradioCtrl .player .infos-bar:after
+{
+	content: "";
+	position:absolute;
+	top:0;
+	width:15px;
+	height:100%;
+	background:none;
+	z-index:1;
+}
+
+.webradioCtrl .player .infos-bar:before {
+	width:0;
+	left:25px;
+	
+}
+
+.webradioCtrl .player .infos-bar:after {
+	right:-15px;
+	box-shadow: -2px 0 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+.webradioCtrl .player .infos-bar:hover {
+    animation-play-state: paused
+}
+
+@-moz-keyframes textSlideLeft {
+    0%   { text-indent: 250px }
+    100% { text-indent: -500px }
+}
+
+@-webkit-keyframes textSlideLeft {
+    0%   { text-indent: 250px }
+    100% { text-indent: -500px }
+}
+
+@keyframes textSlideLeft {
+    0%   { text-indent: 250px  }
+    100% { text-indent: -500px }
+}

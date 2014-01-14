@@ -1,0 +1,102 @@
+<div class="app-panel weatherCtrl" ng-controller="WeatherCtrl" ng-init="loadCodes()">
+
+    <link rel="stylesheet" type="text/css" href="css/weatherCtrl.css">
+
+    <div class="row">
+    	
+    	<div class="col-lg-12">
+    		<h2>La météo...</h2>
+    		<h3>...à {{city}} <small>(recherche une ville ou active la géolocalisation)</small></h3>
+	    	<form role="form" class="form-inline" ng-submit="getDailyForecast()">
+	    		<input type="hidden" ng-model="latitude" value="{{lat}}" placeholder="latitude" />
+	    		<input type="hidden" ng-model="longitude" placeholder="longitude" />
+	    		<div class="form-group">
+	    			<label for="city" class="sr-only">Ville</label>
+	    			<input id="city" list="cityList" type="text" class="form-control" placeholder="Rechercher une ville" ng-model="city">
+	    			<datalist id="cityList">
+	    				<option value="Montréal" />
+	    			</datalist>
+	    		</div>
+	    		<button type="submit" class="btn btn-default">Rechercher</button>
+	    		<button type="button" id="geolocBtn" class="btn btn-default" ng-click="getGeoloc()"><i class="fa fa-location-arrow"></i></button>
+	    	</form>
+	    </div>
+	    
+	</div><!-- /.row -->
+	
+	<div class="row">
+
+		<div class="col-lg-12">
+			<h3>...pour les 7 prochains jours <small></small></h2>
+		</div>
+		
+	    <div class="col-lg-12">
+			<div class="panel-group panel-weather">
+				<div class="panel panel-default" ng-repeat="el in forecast.list">
+				    <div class="panel-heading" ng-click="onClickPanelTitle($event)" data-id="{{el.dt}}">
+				    	<img ng-src="img/meteo/{{el.getset.icon}}" class="icon" />
+				      	<h3 class="panel-title" data-id="#{{el.dt}}">
+				          {{el.getset.prettyDate.date | date: 'fullDate'}}<br />
+				          {{Math.round(el.getset.temp.day)}} °C<br />
+				          <small>{{el.getset.description}}</small><br />
+				          <small>température ressentie {{Math.round(el.getset.windChill)}} °C</small>
+				      	</h3>
+				    </div>
+				    <div id="{{el.dt}}" class="panel-collapse collapse in animated fadeOutDown">
+				      	<div class="panel-body bg-navy">
+				      		<ul class="list-group infos">
+							  	<li class="list-group-item">
+							    	<span class="badge bg-silver black pvl">{{Math.round(el.getset.temp.day)}} °C</span>
+							    	<small>température</small>
+							  	</li>
+							  	<li class="list-group-item">
+							    	<span class="badge bg-silver black pvl">{{Math.round(el.getset.temp.min)}} °C</span>
+							    	<small>minimale</small>
+							  	</li>
+							  	<li class="list-group-item">
+							    	<span class="badge bg-silver black pvl">{{Math.round(el.getset.temp.max)}} °C</span>
+							    	<small>maximale</small>
+							  	</li>
+							</ul>
+							<ul class="list-group infos infos-sup">
+								<li class="list-group-item">
+									<span class="badge bg-silver black pvl">{{el.getset.humidity}} %</span>
+									<small>humidité</small>
+								</li>
+								<li class="list-group-item">
+									<span class="badge bg-silver black pvl">{{Math.round(el.getset.pressure)}} hpa</span>
+									<small>pression</small>
+								</li>
+								<li class="list-group-item">
+									<span class="badge bg-silver black pvl">{{el.getset.wind}} km/h</span>
+									<small>vent</small>
+								</li>
+							</ul>
+							<ul class="list-group infos">
+								<li class="list-group-item">
+							    	<span class="badge bg-silver black pvl">{{Math.round(el.getset.temp.morn)}} °C</span>
+							    	<small>06h00</small>
+							  	</li>
+							  	<li class="list-group-item">
+							    	<span class="badge bg-silver black pvl">{{Math.round(el.getset.temp.day)}} °C</span>
+							    	<small>12h00</small>
+							  	</li>
+							</ul>
+							<ul class="list-group infos">
+							  	<li class="list-group-item">
+							    	<span class="badge bg-silver black pvl">{{Math.round(el.getset.temp.eve)}} °C</span>
+							    	<small>18h00</small>
+							  	</li>
+							  	<li class="list-group-item">
+							    	<span class="badge bg-silver black pvl">{{Math.round(el.getset.temp.night)}} °C</span>
+							    	<small>00h00</small>
+							  	</li>
+							</ul>
+		  				</div>
+				    </div>
+				</div>
+			</div>
+	    </div>
+        
+    </div> <!-- /.row -->
+</div>
