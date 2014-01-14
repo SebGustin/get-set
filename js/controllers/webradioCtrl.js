@@ -29,7 +29,6 @@ getset.controller("WebradioCtrl", function($scope, $timeout, $http) {
 		$http({method: 'GET', url: WEBRADIO_URL})
 			.success(function(data, status, headers, config) {
 				$scope.radios = data.webradios;
-				new message("success", "Webradios are loaded");
 			})
 			.error(function(data, status, headers, config) {
 				new message("error", status + ", " + config.url);
