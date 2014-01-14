@@ -1,3 +1,9 @@
+/**
+ * [WebradioCtrl]
+ * @param  {[type]} $scope
+ * @param  {[type]} $timeout
+ * @param  {[type]} $http
+ */
 getset.controller("WebradioCtrl", function($scope, $timeout, $http) {
 	/**
 	 * CONSTANTES
