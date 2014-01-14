@@ -6,34 +6,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	font-family: 'Ubuntu', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/*.animated.ng-enter, .animated.ng-leave {
-	-webkit-animation-duration: 1s;
-	-webkit-animation-fill-mode: both;
-
-	-moz-animation-duration: 1s;
-	-moz-animation-fill-mode: both;
-
-	animation-duration: 1s;
-	animation-fill-mode: both;
-}
-
-.page-wrapper-animate.ng-enter {
-	-webkit-animation-name: fadeInLeft;
-	-moz-animation-name: fadeInLeft;
-	animation-name: fadeInLeft;
-}
-
-.page-wrapper-animate.ng-leave {
-	-webkit-animation-name: fadeOutLeft;
-	-moz-animation-name: fadeOutLeft;
-	animation-name: fadeOutLeft;
-}*/
-
 html, #page-wrapper {
 	background:rgba(0, 0, 0, 0.075);
 }
-
-
 
 @media (min-width: 768px) {
 	#wrapper {
@@ -44,6 +19,7 @@ html, #page-wrapper {
 		left:160px;
 		width:160px;
 		text-align:center;
+		box-shadow: 2px 0 2px rgba(0,0,0,0.5);
 	}
 	.side-nav >li>a>i {
 		display:block;
@@ -53,6 +29,10 @@ html, #page-wrapper {
 
 .navbar-fixed-top .nav-bar-header {
 	text-align:center;
+}
+
+.navbar-fixed-top .navbar-ex1-collapse {
+	box-shadow: 0 2px 2px rgba(0,0,0,0.5);
 }
 
 .page-wrapper-animate {
