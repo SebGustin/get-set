@@ -73,7 +73,7 @@ getset.controller("WeatherCtrl", function($scope, $http, $window, weatherService
 	/**
 	 * CONSTANTES
 	 */
-	var WEATHER_URL = "data/wheater.json";
+	var WEATHER_URL = "data/weather.json";
 
 	/**
 	 * $scope vars
