@@ -1,0 +1,102 @@
+.classDiagramCtrl {
+
+}
+
+.classDiagramCtrl .model {
+	border: solid 1px #CCC;
+	display: inline-block;
+	background:#FFF;
+	border-radius: 5px;
+	margin:10px;
+	vertical-align: top;
+	position: relative;
+}
+
+.classDiagramCtrl .model *[contentEditable] {
+	cursor: pointer;
+	min-width:5px;
+}
+
+.classDiagramCtrl .model *[contentEditable] br {
+	display:none;
+}
+
+.classDiagramCtrl .model *[contentEditable]:focus {
+	padding:5px;
+	outline:0;
+	background:#EEE;
+	border-radius: 3px;
+}
+
+.classDiagramCtrl .model input {
+	/*cursor: pointer;
+	padding:0;
+	background:none;
+	border:solid 1px #CCC;
+	border-radius: 3px;
+	width:auto;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.2) inset;
+	padding:5px;*/
+}
+
+.classDiagramCtrl .model input:focus {
+	/*outline:0;
+	background:#EEE;*/
+}
+
+.classDiagramCtrl .modelAdd {
+	height: 100px;
+	width:100px;
+	text-align:center;
+	font-size:30px;
+	line-height: 100px;
+	color:#666;
+	cursor: pointer;
+}
+
+.classDiagramCtrl .modelAdd:hover {
+	color:#333;
+}
+
+.classDiagramCtrl .model .modelElement {
+	border-bottom: solid 1px #CCC;
+	padding:10px 100px 10px 10px;
+	margin:0;
+	position:relative;
+	overflow:hidden;
+}
+
+.classDiagramCtrl .model h3 {
+	text-align: center;
+	background:#EEE;
+	border-radius: 5px 5px 0 0;
+}
+
+.classDiagramCtrl .model ul {
+	padding:0;
+	margin:0;
+	list-style-type: none;
+}
+
+.classDiagramCtrl .model ul li {
+	margin:0 0 10px 0;
+}
+
+.classDiagramCtrl .model .formList {
+	
+}
+
+.classDiagramCtrl .model .methodes {
+	border-bottom: 0;
+}
+
+.classDiagramCtrl .model .modelPanel {
+	position:absolute;
+	top:-1px;
+	right:-1px;
+}
+
+.classDiagramCtrl .model .modelPanel button {
+	border-radius: 0;
+}
+

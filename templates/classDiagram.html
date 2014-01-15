@@ -6,5 +6,111 @@
 		<div class="col-lg-12">
 			<h2>Class Diagram</h2>
 		</div>
+		<div id="canvasCD" class="col-lg-12">
+			<div class="model" ng-repeat="model in models">
+				<h3 contentEditable="true" model="model.className" class="modelElement">{{model.className}}</h3>
+				<form novalidate class="form-inline">
+					<div class="modelElement attributes">
+						<ul>
+							<li class="attr viewList animated fadeInUp" ng-repeat="attr in model.attributes">
+								<span model="attr.visibility" class="">{{attr.visibility}}</span>
+								<span model="attr.name" class="">{{attr.name}}</span>
+								<span model="attr.multiplicity" class="">[{{attr.multiplicity}}]</span>
+								<span class="">:</span>
+								<span model="attr.type" class="">{{attr.type}}</span>
+							</li>
+							<li class="attr formList hidden animated" ng-repeat="attr in model.attributes">
+								<div class="form-group">
+									<select class="form-control input-sm" ng-model="attr.visibility">
+										<option value="-"> - private</option>
+										<option value="#"> # protected</option>
+										<option value="+"> + public</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<input placeholder="name" type="text" model="attr.name" class="form-control input-sm" value="{{attr.name}}" />
+								</div>
+								<div class="form-group">
+									<input placeholder="multiplicity" type="text" model="attr.multiplicity" class="form-control input-sm" value="{{attr.multiplicity}}" />
+								</div>
+								<div class="form-group">
+									<span class="">:</span>
+								</div>
+								<div class="form-group">
+									<input placeholder="type" type="text" model="attr.type" class="form-control input-sm" value="{{attr.type}}" />
+								</div>
+							</li>
+						</ul>
+						<div class="modelPanel" >
+							<div class="btn-group btn-group-vertical">
+								<button type="button" class="btn btn-default" ng-click="switchView($event)"><i class="fa fa-eye"></i></button>
+							</div>
+						</div><!-- END modelPanel -->
+					</div>
+					<div class="modelElement methodes">
+						<ul>
+							<li class="meth viewList animated fadeInUp" ng-repeat="meth in model.methods">
+								<span model="meth.visibility" class="">{{meth.visibility}}</span>
+								<span model="meth.name" class="">{{meth.name}}</span>
+								<span class="">(</span>
+								<span model="meth.parameters" class="param">{{param}}</span>
+								<span class="">)</span>
+								<span class="">: return </span>
+								<span model="meth.return" class="">{{meth.return}}</span>
+							</li>
+							<li class="meth formList hidden animated" ng-repeat="meth in model.methods">
+								<div class="form-group">
+									<select class="form-control input-sm" ng-model="meth.visibility">
+										<option value="-"> - private</option>
+										<option value="#"> # protected</option>
+										<option value="+"> + public</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<input placeholder="name" type="text" model="meth.name" class="form-control input-sm" value="{{meth.name}}" />
+								</div>
+								<div class="form-group">
+									<span class="">(</span>
+								</div>
+								<div class="form-group">
+									<input placeholder="parameters" type="text" model="meth.parameters" class="form-control input-sm" value="{{meth.parameters}}" />
+								</div>
+								<div class="form-group">
+									<span class="">)</span>
+								</div>
+								<div class="form-group">
+									<span class="">: return </span>
+								</div>
+								<div class="form-group">
+									<input placeholder="return" type="text" model="meth.return" class="form-control input-sm" value="{{meth.return}}" />
+								</div>
+							</li>
+						</ul>
+						<div class="modelPanel" >
+							<div class="btn-group btn-group-vertical">
+								<button type="button" class="btn btn-default" ng-click="switchView($event)"><i class="fa fa-eye"></i></button>
+							</div>
+						</div><!-- END modelPanel -->
+					</div>
+				</form>
+			</div>
+
+			<div class="model globalPanel" >
+				<div class="btn-group">
+					<button type="button" class="btn btn-default" ng-click="addModel()"><i class="fa fa-plus"></i></button>
+
+					<div class="btn-group">
+					    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					    	Dropdown
+					    	<span class="caret"></span>
+					    </button>
+					    <ul class="dropdown-menu">
+					      	<li><a href="#">Dropdown link</a></li>
+					      	<li><a href="#">Dropdown link</a></li>
+					    </ul>
+				  	</div>
+				</div>
+			</div><!-- END globalPanel -->
+		</div>
     </div>
 </div>
