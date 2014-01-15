@@ -24,7 +24,8 @@
 .classDiagramCtrl .model *[contentEditable]:focus {
 	padding:5px;
 	outline:0;
-	background:#EEE;
+	background:#eee;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.4) inset;
 	border-radius: 3px;
 }
 
@@ -60,7 +61,7 @@
 
 .classDiagramCtrl .model .modelElement {
 	border-bottom: solid 1px #CCC;
-	padding:10px 100px 10px 10px;
+	padding:10px 50px 10px 10px;
 	margin:0;
 	position:relative;
 	overflow:hidden;
@@ -70,6 +71,12 @@
 	text-align: center;
 	background:#EEE;
 	border-radius: 5px 5px 0 0;
+	text-indent: 50px;
+}
+
+#canvasCD .model h3:focus {
+	/* text-indent:0; */
+	padding:10px 50px 10px 10px;
 }
 
 .classDiagramCtrl .model ul {

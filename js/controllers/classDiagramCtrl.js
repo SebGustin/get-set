@@ -2,7 +2,7 @@
  * [controller ClassDiagramCtrl]
  * @param  {[angular]} $scope [description]
  */
-getset.controller("ClassDiagramCtrl", function($scope, $rootScope) {
+getset.controller("ClassDiagramCtrl", function($scope) {
 	
 	function Attr() {
 		this.visibility = "";
@@ -115,11 +115,19 @@ getset.controller("ClassDiagramCtrl", function($scope, $rootScope) {
 			$viewList.removeClass('fadeInDown').addClass('fadeOutDown').delay(300).addClass('hidden');
 			$formList.removeClass('hidden').addClass('fadeInUp').removeClass('fadeOutUp');
 		}
-
 	};
 
+	$scope.setReturn = function(method, event) {
+		var $target = $(event.currentTarget);
+		var ret = '';
 
+		if($target.context.localName === 'span')
+			ret = $target.text();
+		else
+			ret = $target.val();
 
+		method.return = ret;
+	};
 
     
 });
