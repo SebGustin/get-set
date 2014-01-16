@@ -29,70 +29,80 @@
 			<div class="model" ng-repeat="model in models">
 				<h3 contentEditable="true" ng-model="model.className" class="modelElement">{{model.className}}</h3>
 				<form class="form-inline">
+
+
+
+
+					<!-- attributes -->
 					<div class="modelElement attributes">
 						<ul>
 							<li class="attr viewList animated fadeInUp" ng-repeat="attr in model.attributes">
-								<span contentEditable="true" ng-model="attr.visibility" class="">{{attr.visibility}}</span>
-								<span contentEditable="true" ng-model="attr.name" class="">{{attr.name}}</span>
-								<span contentEditable="true" ng-model="attr.multiplicity" class="">[{{attr.multiplicity}}]</span>
+								<span ng-model="attr.visibility" class="">{{attr.visibility}}</span>
+								<span contentEditable="true" ng-model="attr.name" class="" ng-blur="setAttrName(attr, $event)">{{attr.name}}</span>
+								<span contentEditable="true" ng-model="attr.multiplicity" class="" ng-blur="setAttrMultiplicity(attr, $event)">[{{attr.multiplicity}}]</span>
 								<span class="">:</span>
-								<span contentEditable="true" ng-model="attr.type" class="">{{attr.type}}</span>
+								<span contentEditable="true" ng-model="attr.type" class="" ng-blur="setAttrType(attr, $event)">{{attr.type}}</span>
 							</li>
 							<li class="attr formList hidden animated" ng-repeat="attr in model.attributes">
 								<div class="form-group">
-									<select class="form-control input-sm" ng-ng-model="attr.visibility">
+									<select class="form-control input-sm" ng-model="attr.visibility">
 										<option value="-"> - private</option>
 										<option value="#"> # protected</option>
 										<option value="+"> + public</option>
 									</select>
 								</div>
 								<div class="form-group">
-									<input placeholder="name" type="text" ng-model="attr.name" class="form-control input-sm" value="{{attr.name}}" />
+									<input placeholder="name" type="text" ng-model="attr.name" class="form-control input-sm" value="{{attr.name}}" ng-blur="setAttrName(attr, $event)" />
 								</div>
 								<div class="form-group">
-									<input placeholder="multiplicity" type="text" ng-model="attr.multiplicity" class="form-control input-sm" value="{{attr.multiplicity}}" />
+									<input placeholder="multiplicity" type="text" ng-model="attr.multiplicity" class="form-control input-sm" value="{{attr.multiplicity}}" ng-blur="setAttrMultiplicity(attr, $event)" />
 								</div>
 								<div class="form-group">
 									<span class="">:</span>
 								</div>
 								<div class="form-group">
-									<input placeholder="type" type="text" ng-model="attr.type" class="form-control input-sm" value="{{attr.type}}" />
+									<input placeholder="type" type="text" ng-model="attr.type" class="form-control input-sm" value="{{attr.type}}" ng-blur="setAttrType(attr, $event)" />
 								</div>
 							</li>
 						</ul>
 						<div class="modelPanel" >
 							<div class="btn-group btn-group-vertical">
-								<button type="button" class="btn btn-default" ng-click="switchView($event)"><i class="fa fa-eye"></i></button>
+								<button type="button" class="btn btn-default" ng-click="switchView($event)"><i class="fa fa-th-list"></i></button>
 							</div>
 						</div><!-- END modelPanel -->
 					</div>
+
+
+
+
+					<!-- methods -->
 					<div class="modelElement methodes">
 						<ul>
 							<li class="meth viewList animated fadeInUp" ng-repeat="meth in model.methods">
-								<span contentEditable="true" ng-model="meth.visibility" class="">{{meth.visibility}}</span>
-								<span contentEditable="true" ng-model="meth.name" class="">{{meth.name}}</span>
+								<span ng-model="meth.visibility" class="">{{meth.visibility}}</span>
+								<span contentEditable="true" ng-model="meth.name" class="" ng-blur="setMethName(meth, $event)">{{meth.name}}</span>
 								<span class="">(</span>
-								<span contentEditable="true" ng-model="meth.parameters" class="param">{{meth.parameters}}</span>
+								<span contentEditable="true" ng-model="meth.parameters" class="param" ng-blur="setMethParameters(meth, $event)">{{meth.parameters}}</span>
 								<span class="">)</span>
 								<span class="">: return </span>
-								<span contentEditable="true" ng-model="meth.return" class="" ng-blur="setReturn(meth, $event)">{{meth.return}}</span>
+								<span contentEditable="true" ng-model="meth.return" class="" ng-blur="setMethReturn(meth, $event)">{{meth.return}}</span>
 							</li>
 							<li class="meth formList hidden animated" ng-repeat="meth in model.methods">
 								<div class="form-group">
-									<select class="form-control input-sm" ng-ng-model="meth.visibility">
+									<select class="form-control input-sm" ng-model="meth.visibility">
 										<option value="-"> - private</option>
 										<option value="#"> # protected</option>
 										<option value="+"> + public</option>
 									</select>
 								</div>
 								<div class="form-group">
-									<input placeholder="name" type="text" ng-model="meth.name" class="form-control input-sm" value="{{meth.name}}" />
+									<input placeholder="name" type="text" ng-model="meth.name" class="form-control input-sm" ng-blur="setMethName(meth, $event)" />
 								</div>
 								<div class="form-group">
 									<span class="">(</span>
 								</div>
 								<div class="form-group">
-									<input placeholder="parameters" type="text" ng-model="meth.parameters" class="form-control input-sm" value="{{meth.parameters}}" />
+									<input placeholder="parameters" type="text" ng-model="meth.parameters" class="form-control input-sm" ng-blur="setMethParameters(meth, $event)" />
 								</div>
 								<div class="form-group">
 									<span class="">)</span>
@@ -101,13 +111,13 @@
 									<span class="">: return </span>
 								</div>
 								<div class="form-group">
-									<input placeholder="return" type="text" ng-model="meth.return" class="form-control input-sm" ng-blur="setReturn(meth, $event)" />
+									<input placeholder="return" type="text" ng-model="meth.return" class="form-control input-sm" ng-blur="setMethReturn(meth, $event)" />
 								</div>
 							</li>
 						</ul>
 						<div class="modelPanel" >
 							<div class="btn-group btn-group-vertical">
-								<button type="button" class="btn btn-default" ng-click="switchView($event)"><i class="fa fa-eye"></i></button>
+								<button type="button" class="btn btn-default" ng-click="switchView($event)"><i class="fa fa-th-list"></i></button>
 							</div>
 						</div><!-- END modelPanel -->
 					</div>

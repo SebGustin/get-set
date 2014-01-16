@@ -12,16 +12,19 @@
 	position: relative;
 }
 
-.classDiagramCtrl .model *[contentEditable] {
+.classDiagramCtrl .model span[contentEditable],
+.classDiagramCtrl .model h3[contentEditable] {
 	cursor: pointer;
 	min-width:5px;
 }
 
-.classDiagramCtrl .model *[contentEditable] br {
+.classDiagramCtrl .model span[contentEditable] br,
+.classDiagramCtrl .model h3[contentEditable] br {
 	display:none;
 }
 
-.classDiagramCtrl .model *[contentEditable]:focus {
+.classDiagramCtrl .model span[contentEditable]:focus,
+.classDiagramCtrl .model h3[contentEditable]:focus {
 	padding:5px;
 	outline:0;
 	background:#eee;
@@ -59,9 +62,9 @@
 	color:#333;
 }
 
-.classDiagramCtrl .model .modelElement {
+.classDiagramCtrl .modelElement {
 	border-bottom: solid 1px #CCC;
-	padding:10px 50px 10px 10px;
+	padding:10px 10px 10px 50px;
 	margin:0;
 	position:relative;
 	overflow:hidden;
@@ -71,12 +74,12 @@
 	text-align: center;
 	background:#EEE;
 	border-radius: 5px 5px 0 0;
-	text-indent: 50px;
+	text-indent: 0px;
+	padding: 10px;
 }
 
 #canvasCD .model h3:focus {
-	/* text-indent:0; */
-	padding:10px 50px 10px 10px;
+	padding: 10px;
 }
 
 .classDiagramCtrl .model ul {
@@ -100,10 +103,12 @@
 .classDiagramCtrl .model .modelPanel {
 	position:absolute;
 	top:-1px;
-	right:-1px;
+	left:-1px;
+	padding:1px;
+	background:#ccc;
 }
 
 .classDiagramCtrl .model .modelPanel button {
-	border-radius: 0;
+	/*border-radius: 0;*/
 }
 
