@@ -4,75 +4,7 @@
  */
 getset.controller("ClassDiagramCtrl", function($scope) {
 	
-	$scope.models = [
-		{
-			"className" : "Person",
-			"attributes": [
-				{
-					"visibility": "-", // private | protected | public | - | # | +
-					"name" : "firstname",
-					"multiplicity": 1,
-					"type": "string"
-				},
-				{
-					"visibility": "-", // private | protected | public | - | # | +
-					"name" : "lastname",
-					"multiplicity": 1,
-					"type": "string"
-				}
-			],
-			"methods": [
-				{
-					"visibility": "+",
-					"name" : "getName",
-					"parameters": "",
-					"return": "string"
-				},
-				{
-					"visibility": "+",
-					"name" : "getNameById",
-					"parameters": "id",
-					"return": "string"
-				}
-			]
-		},
-		{
-			"className" : "Employe",
-			"attributes": [
-				{
-					"visibility": "-", // private | protected | public | - | # | +
-					"name" : "firstname",
-					"multiplicity": 1,
-					"type": "string",
-					"profession": "Developer"
-				},
-				{
-					"visibility": "-", // private | protected | public | - | # | +
-					"name" : "lastname",
-					"multiplicity": 1,
-					"type": "string"
-				}
-			],
-			"methods": [
-				{
-					"visibility": "+",
-					"name" : "getName",
-					"parameters": "",
-					"return": "string"
-				},
-				{
-					"visibility": "+",
-					"name" : "getProfession",
-					"parameters": "",
-					"return": "string"
-				}
-			]
-		}
-	];
-
-	$scope.drawModel = function() {
-
-	};
+	$scope.models = [];
 
 	$scope.addAttribute = function(model) {
 		model.attributes.push(new Attr());
@@ -88,27 +20,6 @@ getset.controller("ClassDiagramCtrl", function($scope) {
 		newModel.methods.push(new Method());
 		$scope.models.push(newModel);
 	};
-
-	$scope.switchView = function(event) {
-		var $btn = $(event.currentTarget),
-			$modEl = $btn.parents('.modelElement'),
-			$viewList = $modEl.children('ul').find('li.viewList'),
-			$formList = $modEl.children('ul').find('li.formList');
-
-		$btn.toggleClass('active');
-		
-		if($viewList.hasClass('hidden')) {
-			$viewList.removeClass('hidden').addClass('fadeInDown').removeClass('fadeOutDown');
-			$formList.removeClass('fadeInUp').addClass('fadeOutUp').delay(10000).addClass('hidden');
-		} else {
-			$viewList.removeClass('fadeInDown').addClass('fadeOutDown').delay(10000).addClass('hidden');
-			$formList.removeClass('hidden').addClass('fadeInUp').removeClass('fadeOutUp');
-		}
-
-		scrollToModel($modEl);
-	};
-
-	
 
 	$scope.setAttrName = function(attr, event) {
 		attr.name = getValueFor($(event.currentTarget));
@@ -134,16 +45,33 @@ getset.controller("ClassDiagramCtrl", function($scope) {
 		method.parameters = getValueFor($(event.currentTarget));
 	};
 
-	function getValueFor($el) {
-		if(getTagName($el) === 'span')
-			return $el.text();
-		else
-			return $el.val();
-	}
+	$scope.switchView = function(event) {
+		var $btn = $(event.currentTarget),
+			$modEl = $btn.parents('.modelElement'),
+			$viewList = $modEl.children('ul').find('li.viewList'),
+			$formList = $modEl.children('ul').find('li.formList');
 
-	function getTagName($el) {
-		return $el.context.localName;
-	}
+		$btn.toggleClass('active');
+
+		if($viewList.hasClass('hidden')) {
+			$viewList.removeClass('hidden').addClass('fadeInDown').removeClass('fadeOutDown');
+			$formList.removeClass('fadeInUp').addClass('fadeOutUp').delay(10000).addClass('hidden');
+		} else {
+			$viewList.removeClass('fadeInDown').addClass('fadeOutDown').delay(10000).addClass('hidden');
+			$formList.removeClass('hidden').addClass('fadeInUp').removeClass('fadeOutUp');
+		}
+
+		scrollToModel($modEl);
+	};
+
+	
+	$scope.drawModel = function() {
+		var firstModel = new Model('Firstmodel');
+		firstModel.attributes.push(new Attr());
+		firstModel.methods.push(new Method());
+		$scope.models.push(firstModel);
+	};
+	
 });
 
 function Attr(vis, name, mult ,type) {
@@ -155,13 +83,13 @@ function Attr(vis, name, mult ,type) {
 
 function Method(vis, name, params, ret) {
 	this.visibility = (typeof vis == "undefined" ? "+" : vis);
-	this.name = (typeof name == "undefined" ? "name" : name);
-	this.params = (typeof params == "parameters" ? "" : params);
-	this.return = (typeof ret == "return" ? "" : ret);
+	this.name       = (typeof name == "undefined" ? "name" : name);
+	this.params     = (typeof params == "parameters" ? "parameters" : params);
+	this.return     = (typeof ret == "return" ? "return" : ret);
 }
 
-function Model() {
-	this.className = "NewClass";
+function Model(className) {
+	this.className = (typeof className == "undefined" ? "className" : className);
 	this.attributes = [];
 	this.methods = [];
 }
@@ -170,4 +98,15 @@ function scrollToModel($el) {
 	$('html, body').animate({
         scrollTop: $el.parents('.model').offset().top - 50
     }, 300);
+}
+
+function getValueFor($el) {
+	if(getTagName($el) === 'span')
+		return $el.text();
+	else
+		return $el.val();
+}
+
+function getTagName($el) {
+	return $el.context.localName;
 }
