@@ -117,6 +117,18 @@ getset.controller("ClassDiagramCtrl", function($scope) {
 	};
 
 	/**
+	 * [deleteModel description]
+	 * @param  {[type]} model [description]
+	 * @param  {[type]} index [description]
+	 * @param  {[type]} event [description]
+	 */
+	$scope.deleteModel = function(index, event) {
+		var $btn = $(event.currentTarget);
+		$btn.find('i').removeClass('glyphicon glyphicon-remove').addClass('fa fa-spinner fa-spin');
+		$scope.models.splice(index, 1);
+	};
+
+	/**
 	 * [switchView description]
 	 * @param  {[type]} event [description]
 	 * @return {[type]}       [description]

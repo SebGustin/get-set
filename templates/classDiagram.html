@@ -27,7 +27,7 @@
 		<div id="canvasCD" class="col-lg-12">
 
 			<div class="model" ng-repeat="model in models">
-				<h3 contentEditable="true" ng-model="model.className" class="modelElement">{{model.className}}</h3>
+				<h3 contentEditable="true" ng-model="model.className" class="modelElement"><button type="button" class="btn btn-default btn-xs btn-delete" ng-click="deleteModel($index, $event)"><i class="glyphicon glyphicon-remove"></i></button>{{model.className}}</h3>
 				<form class="form-inline">
 
 

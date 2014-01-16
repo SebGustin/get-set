@@ -12,6 +12,10 @@
 	position: relative;
 }
 
+.classDiagramCtrl .model.globalPanel {
+	border:0;
+}
+
 .classDiagramCtrl .model span[contentEditable],
 .classDiagramCtrl .model h3[contentEditable] {
 	cursor: pointer;
@@ -78,6 +82,17 @@
 	text-indent: 0px;
 	padding: 10px;
 	min-height: inherit;
+}
+
+.classDiagramCtrl .model h3 .btn-delete {
+	position: absolute;
+	right: 1px;
+	top: 1px;
+	visibility:hidden;
+}
+
+.classDiagramCtrl .model h3:hover .btn-delete {
+	visibility:visible;
 }
 
 #canvasCD .model h3:focus {
