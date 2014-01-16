@@ -50,6 +50,7 @@ getset.controller("ClassDiagramCtrl", function($scope) {
 	 * @param {[type]} event [description]
 	 */
 	$scope.setAttrMultiplicity = function(attr, event) {
+		console.log(getValueFor($(event.currentTarget)));
 		attr.multiplicity = getValueFor($(event.currentTarget));
 	};
 
@@ -87,6 +88,32 @@ getset.controller("ClassDiagramCtrl", function($scope) {
 	 */
 	$scope.setMethParameters = function(method, event) {
 		method.parameters = getValueFor($(event.currentTarget));
+	};
+
+	/**
+	 * [deleteAttribute description]
+	 * @param  {[type]} model [description]
+	 * @param  {[type]} index [description]
+	 * @param  {[type]} event [description]
+	 */
+	$scope.deleteAttribute = function(model, index, event) {
+		var $btn = $(event.currentTarget);
+		$btn.find('i').removeClass('glyphicon glyphicon-remove').addClass('fa fa-spinner fa-spin');
+		$btn.parents('.attr').removeClass('fadeInUp');
+		model.attributes.splice(index, 1);
+	};
+
+	/**
+	 * [deleteMethod description]
+	 * @param  {[type]} model [description]
+	 * @param  {[type]} index [description]
+	 * @param  {[type]} event [description]
+	 */
+	$scope.deleteMethod = function(model, index, event) {
+		var $btn = $(event.currentTarget);
+		$btn.find('i').removeClass('glyphicon glyphicon-remove').addClass('fa fa-spinner fa-spin');
+		$btn.parents('.meth').removeClass('fadeInUp');
+		model.methods.splice(index, 1);
 	};
 
 	/**

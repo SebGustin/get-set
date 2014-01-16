@@ -39,9 +39,10 @@
 							<li class="attr viewList animated fadeInUp" ng-repeat="attr in model.attributes">
 								<span ng-model="attr.visibility" class="">{{attr.visibility}}</span>
 								<span contentEditable="true" ng-model="attr.name" class="" ng-blur="setAttrName(attr, $event)">{{attr.name}}</span>
-								<span contentEditable="true" ng-model="attr.multiplicity" class="" ng-blur="setAttrMultiplicity(attr, $event)">[{{attr.multiplicity}}]</span>
+								<span contentEditable="true" ng-model="attr.multiplicity" class="" ng-blur="setAttrMultiplicity(attr, $event)">{{attr.multiplicity}}</span>
 								<span class="">:</span>
 								<span contentEditable="true" ng-model="attr.type" class="" ng-blur="setAttrType(attr, $event)">{{attr.type}}</span>
+								<button type="button" class="btn btn-default btn-xs btn-delete" ng-click="deleteAttribute(model, $index, $event)"><i class="glyphicon glyphicon-remove"></i></button>
 							</li>
 							<li class="attr formList hidden animated" ng-repeat="attr in model.attributes">
 								<div class="form-group">
@@ -62,6 +63,9 @@
 								</div>
 								<div class="form-group">
 									<input placeholder="type" type="text" ng-model="attr.type" class="form-control input-sm" value="{{attr.type}}" ng-blur="setAttrType(attr, $event)" />
+								</div>
+								<div class="form-group">
+									<button type="button" class="btn btn-default btn-sm btn-delete" ng-click="deleteAttribute(model, $index, $event)"><i class="glyphicon glyphicon-remove"></i></button>
 								</div>
 							</li>
 						</ul>
@@ -87,6 +91,7 @@
 								<span class="">)</span>
 								<span class="">: return </span>
 								<span contentEditable="true" ng-model="meth.return" class="" ng-blur="setMethReturn(meth, $event)">{{meth.return}}</span>
+								<button type="button" class="btn btn-default btn-xs btn-delete" ng-click="deleteMethod(model, $index, $event)"><i class="glyphicon glyphicon-remove"></i></button>
 							</li>
 							<li class="meth formList hidden animated" ng-repeat="meth in model.methods">
 								<div class="form-group">
@@ -113,6 +118,9 @@
 								</div>
 								<div class="form-group">
 									<input placeholder="return" type="text" ng-model="meth.return" class="form-control input-sm" ng-blur="setMethReturn(meth, $event)" />
+								</div>
+								<div class="form-group">
+									<button type="button" class="btn btn-default btn-sm btn-delete" ng-click="deleteMethod(model, $index, $event)"><i class="glyphicon glyphicon-remove"></i></button>
 								</div>
 							</li>
 						</ul>
