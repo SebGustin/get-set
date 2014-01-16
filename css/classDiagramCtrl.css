@@ -68,6 +68,7 @@
 	margin:0;
 	position:relative;
 	overflow:hidden;
+	min-height: 70px;
 }
 
 .classDiagramCtrl .model h3 {
@@ -76,6 +77,7 @@
 	border-radius: 5px 5px 0 0;
 	text-indent: 0px;
 	padding: 10px;
+	min-height: inherit;
 }
 
 #canvasCD .model h3:focus {
@@ -102,13 +104,16 @@
 
 .classDiagramCtrl .model .modelPanel {
 	position:absolute;
-	top:-1px;
-	left:-1px;
+	top:0px;
+	left:0px;
 	padding:1px;
-	background:#ccc;
+	background:#fff;
 }
 
 .classDiagramCtrl .model .modelPanel button {
 	/*border-radius: 0;*/
 }
+
+.modelPanel .btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
+border-top-right-radius: 4px;
 

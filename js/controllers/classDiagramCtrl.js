@@ -74,6 +74,14 @@ getset.controller("ClassDiagramCtrl", function($scope) {
 
 	};
 
+	$scope.addAttribute = function(model) {
+		model.attributes.push(new Attr());
+	};
+
+	$scope.addMethod = function(model) {
+		model.methods.push(new Method());
+	};
+
 	$scope.addModel = function() {
 		var newModel = new Model();
 		newModel.attributes.push(new Attr());
@@ -87,6 +95,8 @@ getset.controller("ClassDiagramCtrl", function($scope) {
 			$viewList = $modEl.children('ul').find('li.viewList'),
 			$formList = $modEl.children('ul').find('li.formList');
 
+		$btn.toggleClass('active');
+		
 		if($viewList.hasClass('hidden')) {
 			$viewList.removeClass('hidden').addClass('fadeInDown').removeClass('fadeOutDown');
 			$formList.removeClass('fadeInUp').addClass('fadeOutUp').delay(10000).addClass('hidden');
@@ -97,6 +107,8 @@ getset.controller("ClassDiagramCtrl", function($scope) {
 
 		scrollToModel($modEl);
 	};
+
+	
 
 	$scope.setAttrName = function(attr, event) {
 		attr.name = getValueFor($(event.currentTarget));
@@ -155,7 +167,6 @@ function Model() {
 }
 
 function scrollToModel($el) {
-	console.log($el.parents('.model'));
 	$('html, body').animate({
         scrollTop: $el.parents('.model').offset().top - 50
     }, 300);
