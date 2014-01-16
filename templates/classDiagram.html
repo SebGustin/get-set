@@ -9,7 +9,7 @@
 		<div class="col-lg-12">
 			<div class="model globalPanel" >
 				<div class="btn-group">
-					<button type="button" class="btn btn-default" ng-click="addModel()"><i class="fa fa-plus"></i></button>
+					<button type="button" class="btn btn-default" ng-click="addModel()" title="new model"><i class="fa fa-plus"></i></button>
 
 					<div class="btn-group">
 					    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -27,7 +27,7 @@
 		<div id="canvasCD" class="col-lg-12">
 
 			<div class="model" ng-repeat="model in models">
-				<h3 contentEditable="true" ng-model="model.className" class="modelElement"><button type="button" class="btn btn-default btn-xs btn-delete" ng-click="deleteModel($index, $event)"><i class="glyphicon glyphicon-remove"></i></button>{{model.className}}</h3>
+				<h3 contentEditable="true" ng-model="model.className" class="modelElement"><button type="button" class="btn btn-default btn-xs btn-delete" ng-click="deleteModel($index, $event)" title="delete model"><i class="glyphicon glyphicon-remove"></i></button>{{model.className}}</h3>
 				<form class="form-inline">
 
 
@@ -42,7 +42,7 @@
 								<span contentEditable="true" ng-model="attr.multiplicity" class="" ng-blur="setAttrMultiplicity(attr, $event)">{{attr.multiplicity}}</span>
 								<span class="">:</span>
 								<span contentEditable="true" ng-model="attr.type" class="" ng-blur="setAttrType(attr, $event)">{{attr.type}}</span>
-								<button type="button" class="btn btn-default btn-xs btn-delete" ng-click="deleteAttribute(model, $index, $event)"><i class="glyphicon glyphicon-remove"></i></button>
+								<button type="button" class="btn btn-default btn-xs btn-delete" ng-click="deleteAttribute(model, $index, $event)" title="delete attribute"><i class="glyphicon glyphicon-remove"></i></button>
 							</li>
 							<li class="attr formList hidden animated" ng-repeat="attr in model.attributes">
 								<div class="form-group">
@@ -65,14 +65,14 @@
 									<input placeholder="type" type="text" ng-model="attr.type" class="form-control input-sm" value="{{attr.type}}" ng-blur="setAttrType(attr, $event)" />
 								</div>
 								<div class="form-group">
-									<button type="button" class="btn btn-default btn-sm btn-delete" ng-click="deleteAttribute(model, $index, $event)"><i class="glyphicon glyphicon-remove"></i></button>
+									<button type="button" class="btn btn-default btn-sm btn-delete" ng-click="deleteAttribute(model, $index, $event)" title="delete attribute"><i class="glyphicon glyphicon-remove"></i></button>
 								</div>
 							</li>
 						</ul>
 						<div class="modelPanel" >
 							<div class="btn-group btn-group-vertical">
-								<button type="button" class="btn btn-default" ng-click="switchView($event)"><i class="fa fa-th-list"></i></button>
-								<button type="button" class="btn btn-default" ng-click="addAttribute(model)"><i class="fa fa-plus"></i></button>
+								<button type="button" class="btn btn-default" ng-click="switchView($event)" title="switch view"><i class="fa fa-th-list"></i></button>
+								<button type="button" class="btn btn-default" ng-click="addAttribute(model)" title="add attribute"><i class="fa fa-plus"></i></button>
 							</div>
 						</div><!-- END modelPanel -->
 					</div>
@@ -91,7 +91,7 @@
 								<span class="">)</span>
 								<span class="">: return </span>
 								<span contentEditable="true" ng-model="meth.return" class="" ng-blur="setMethReturn(meth, $event)">{{meth.return}}</span>
-								<button type="button" class="btn btn-default btn-xs btn-delete" ng-click="deleteMethod(model, $index, $event)"><i class="glyphicon glyphicon-remove"></i></button>
+								<button type="button" class="btn btn-default btn-xs btn-delete" ng-click="deleteMethod(model, $index, $event)" title="delete method"><i class="glyphicon glyphicon-remove"></i></button>
 							</li>
 							<li class="meth formList hidden animated" ng-repeat="meth in model.methods">
 								<div class="form-group">
@@ -120,14 +120,14 @@
 									<input placeholder="return" type="text" ng-model="meth.return" class="form-control input-sm" ng-blur="setMethReturn(meth, $event)" />
 								</div>
 								<div class="form-group">
-									<button type="button" class="btn btn-default btn-sm btn-delete" ng-click="deleteMethod(model, $index, $event)"><i class="glyphicon glyphicon-remove"></i></button>
+									<button type="button" class="btn btn-default btn-sm btn-delete" ng-click="deleteMethod(model, $index, $event)" title="delete method"><i class="glyphicon glyphicon-remove"></i></button>
 								</div>
 							</li>
 						</ul>
 						<div class="modelPanel" >
 							<div class="btn-group btn-group-vertical">
-								<button type="button" class="btn btn-default" ng-click="switchView($event)"><i class="fa fa-th-list"></i></button>
-								<button type="button" class="btn btn-default" ng-click="addMethod(model)"><i class="fa fa-plus"></i></button>
+								<button type="button" class="btn btn-default" ng-click="switchView($event)" title="switch view"><i class="fa fa-th-list"></i></button>
+								<button type="button" class="btn btn-default" ng-click="addMethod(model)" title="add method"><i class="fa fa-plus"></i></button>
 							</div>
 						</div><!-- END modelPanel -->
 					</div>
