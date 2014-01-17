@@ -1,14 +1,17 @@
+html {
+	background-color: rgba(0, 0, 0, 0.05);
+	background: url(../img/texture/img-noise-361x370.png) repeat;
+}
+
 body {
 	font-family: 'Ubuntu', "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background: none;
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	font-family: 'Ubuntu', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-html, #page-wrapper {
-	background:rgba(0, 0, 0, 0.075);
-}
 
 @media (min-width: 768px) {
 	#wrapper {
