@@ -84,14 +84,15 @@
 	min-height: inherit;
 }
 
-.classDiagramCtrl .model h3 .btn-delete {
+.classDiagramCtrl .model .btn-delete-model {
 	position: absolute;
 	right: -1px;
 	top:-1px;
-	visibility:hidden;
+	visibility:hidden; 
+	z-index: 1;
 }
 
-.classDiagramCtrl .model h3:hover .btn-delete {
+.classDiagramCtrl .model:hover .btn-delete-model {
 	visibility:visible;
 }
 
