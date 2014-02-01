@@ -96,8 +96,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	transition-duration: 0;
 }
 
-.app-panel {
-	
+.navbar-brand {
+	float: left;
+	padding: 15px 15px;
+	font-size: 18px;
+	line-height: 20px;
+	width:135px;
 }
 
 .navbar-inverse {
