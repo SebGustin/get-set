@@ -134,7 +134,7 @@ getset.controller("ClassDiagramCtrl", function($scope) {
 	 * @param  {[type]} event [description]
 	 * @return {[type]}       [description]
 	 */
-	$scope.switchView = function(event, mode) {
+	$scope.switchView = function(event) {
 		var
 			$btn      = $(event.currentTarget),
 			$icon     = $btn.children('i'),
@@ -166,10 +166,43 @@ getset.controller("ClassDiagramCtrl", function($scope) {
 	 * @return {[type]}       [description]
 	 */
 	$scope.switchModeView = function(event) {
-		var $btn = $(event.currentTarget);
+		var
+			$btn        = $(event.currentTarget),
+			$icon       = $btn.children('i'),
+			askModeText = ($icon.hasClass('fa-eye') ? true : false),
+			askModeForm = ($icon.hasClass('fa-eye') ? false : true),
+			$models     = $('.modelElement');
 
-		// TODO: implement function with switchView() and mode param
-		console.log($btn);
+		if(askModeText) {
+			$icon.attr('class','fa fa-th-list');
+			$btn.attr('title','Switch to mode Form');
+		} else {
+			$icon.attr('class','fa fa-eye');
+			$btn.attr('title','Switch to mode Text');
+		}
+
+		$models.each(function(index) {
+			var
+				$model     = $(this),
+				$iconModel = $model.find('.btn-switchView').find('i'),
+				isModeText = ($iconModel.hasClass('fa-eye') ? false : true),
+				isModeForm = ($iconModel.hasClass('fa-eye') ? true : false),
+				$viewList  = $model.children('ul').find('li.viewList'),
+				$formList  = $model.children('ul').find('li.formList');
+
+			if(askModeText && isModeForm) {
+				$iconModel.attr('class','fa fa-th-list');
+				$viewList.removeClass('hidden').addClass('fadeInDown').removeClass('fadeOutDown');
+				$formList.removeClass('fadeInUp').addClass('fadeOutUp').delay(10000).addClass('hidden');
+			}
+
+			if(askModeForm && isModeText) {
+				$iconModel.attr('class','fa fa-eye');
+				$viewList.removeClass('fadeInDown').addClass('fadeOutDown').delay(10000).addClass('hidden');
+				$formList.removeClass('hidden').addClass('fadeInUp').removeClass('fadeOutUp');
+			}
+
+		});
 	};
 
 	/**
