@@ -1,6 +1,6 @@
-.classDiagramCtrl {
-
-}
+/**
+ * classDiagramCtrl
+ */
 
 .classDiagramCtrl .model {
 	border: solid 1px #CCC;
@@ -20,6 +20,15 @@
 .classDiagramCtrl .model h3[contentEditable] {
 	cursor: pointer;
 	min-width:5px;
+}
+
+.classDiagramCtrl .model span[contentEditable] {
+	background:#fafafa;
+	padding:5px;
+}
+
+.classDiagramCtrl .model span[contentEditable]:hover {
+	background:#eee;
 }
 
 .classDiagramCtrl .model span[contentEditable] br,

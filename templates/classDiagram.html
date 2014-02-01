@@ -9,6 +9,8 @@
 		<div class="col-lg-12">
 			<div class="model globalPanel" >
 				<div class="btn-group">
+
+					<!-- addModel() -->
 					<button type="button" class="btn btn-default" ng-click="addModel()" title="new model"><i class="fa fa-plus"></i></button>
 
 					<div class="btn-group">
@@ -16,6 +18,7 @@
 					    	<span class="caret"></span>
 					    </button>
 					    <ul class="dropdown-menu">
+					    	<!-- window.print -->
 					      	<li><a href="javascript:window.print();"><i class="fa fa-print"></i> Print</a></</li>
 					    </ul>
 				  	</div>
@@ -23,27 +26,52 @@
 			</div><!-- END globalPanel -->
 		</div>
 		<div id="canvasCD" class="col-lg-12">
-
+			
+			<!-- each model in models -->
 			<div class="model" ng-repeat="model in models">
+
+				<!-- deleteModel($index, $event) -->
 				<button type="button" class="btn btn-default btn-xs btn-delete btn-delete-model" ng-click="deleteModel($index, $event)" title="delete model"><i class="glyphicon glyphicon-remove"></i></button>
+
+				<!-- model.className -->
 				<h3 contentEditable="true" ng-model="model.className" class="modelElement">{{model.className}}</h3>
 				<form class="form-inline">
 
 
 
 
-					<!-- attributes -->
-					<div class="modelElement attributes">
+					<!-- model.attributes -->
+					<div class="modelElement model.attributes">
 						<ul>
+							<!-- text view -->
+							<!-- each attr in model.attributes -->
 							<li class="attr viewList animated fadeInUp" ng-repeat="attr in model.attributes">
+
+								<!-- attr.visibility -->
 								<span ng-model="attr.visibility" class="">{{attr.visibility}}</span>
+
+								<!-- attr.name -->
 								<span contentEditable="true" ng-model="attr.name" class="" ng-blur="setAttrName(attr, $event)">{{attr.name}}</span>
+
+								<!-- attr.multiplicity -->
 								<span contentEditable="true" ng-model="attr.multiplicity" class="" ng-blur="setAttrMultiplicity(attr, $event)">{{attr.multiplicity}}</span>
+								
+								
 								<span class="">:</span>
+
+								<!-- attr.type -->
 								<span contentEditable="true" ng-model="attr.type" class="" ng-blur="setAttrType(attr, $event)">{{attr.type}}</span>
+
+								<!-- deleteAttribute(model, $index, $event) -->
 								<button type="button" class="btn btn-default btn-xs btn-delete" ng-click="deleteAttribute(model, $index, $event)" title="delete attribute"><i class="glyphicon glyphicon-remove"></i></button>
+
 							</li>
+
+							<!-- form view -->
+							<!-- each attr in model.attributes -->
 							<li class="attr formList hidden animated" ng-repeat="attr in model.attributes">
+
+								<!-- attr.visibility -->
 								<div class="form-group">
 									<select class="form-control input-sm" ng-model="attr.visibility">
 										<option value="-"> - private</option>
@@ -51,48 +79,87 @@
 										<option value="+"> + public</option>
 									</select>
 								</div>
+
+								<!-- attr.name -->
 								<div class="form-group">
 									<input placeholder="name" type="text" ng-model="attr.name" class="form-control input-sm" value="{{attr.name}}" ng-blur="setAttrName(attr, $event)" />
 								</div>
+
+								<!-- attr.multiplicity -->
 								<div class="form-group">
 									<input placeholder="multiplicity" type="text" ng-model="attr.multiplicity" class="form-control input-sm" value="{{attr.multiplicity}}" ng-blur="setAttrMultiplicity(attr, $event)" />
 								</div>
+
 								<div class="form-group">
 									<span class="">:</span>
 								</div>
+								
+								<!-- attr.type -->
 								<div class="form-group">
 									<input placeholder="type" type="text" ng-model="attr.type" class="form-control input-sm" value="{{attr.type}}" ng-blur="setAttrType(attr, $event)" />
 								</div>
+								
+								<!-- deleteAttribute(model, $index, $event) -->
 								<div class="form-group">
 									<button type="button" class="btn btn-default btn-sm btn-delete" ng-click="deleteAttribute(model, $index, $event)" title="delete attribute"><i class="glyphicon glyphicon-remove"></i></button>
 								</div>
+
 							</li>
 						</ul>
+
+
 						<div class="modelPanel" >
 							<div class="btn-group btn-group-vertical">
+
+								<!-- switchView($event) -->
 								<button type="button" class="btn btn-default" ng-click="switchView($event)" title="switch view"><i class="fa fa-th-list"></i></button>
+
+								<!-- addAttribute(model) -->
 								<button type="button" class="btn btn-default" ng-click="addAttribute(model)" title="add attribute"><i class="fa fa-plus"></i></button>
+
 							</div>
 						</div><!-- END modelPanel -->
+
 					</div>
 
 
 
 
-					<!-- methods -->
-					<div class="modelElement methodes">
+					<!-- model.methods -->
+					<div class="modelElement model.methodes">
 						<ul>
+							<!-- text view -->
+							<!-- each meth in model.methods -->
 							<li class="meth viewList animated fadeInUp" ng-repeat="meth in model.methods">
+
+								<!-- meth.visibility -->
 								<span ng-model="meth.visibility" class="">{{meth.visibility}}</span>
+
+								<!-- meth.name -->
 								<span contentEditable="true" ng-model="meth.name" class="" ng-blur="setMethName(meth, $event)">{{meth.name}}</span>
+
 								<span class="">(</span>
+
+								<!-- meth.parameters -->
 								<span contentEditable="true" ng-model="meth.parameters" class="param" ng-blur="setMethParameters(meth, $event)">{{meth.parameters}}</span>
+
 								<span class="">)</span>
+
 								<span class="">: return </span>
+
+								<!-- meth.return -->
 								<span contentEditable="true" ng-model="meth.return" class="" ng-blur="setMethReturn(meth, $event)">{{meth.return}}</span>
+
+								<!-- deleteMethod(model, $index, $event) -->
 								<button type="button" class="btn btn-default btn-xs btn-delete" ng-click="deleteMethod(model, $index, $event)" title="delete method"><i class="glyphicon glyphicon-remove"></i></button>
+
 							</li>
+
+							<!-- form view -->
+							<!-- each meth in model.methods -->
 							<li class="meth formList hidden animated" ng-repeat="meth in model.methods">
+
+								<!-- meth.visibility -->
 								<div class="form-group">
 									<select class="form-control input-sm" ng-model="meth.visibility">
 										<option value="-"> - private</option>
@@ -100,24 +167,35 @@
 										<option value="+"> + public</option>
 									</select>
 								</div>
+
+								<!-- meth.name -->
 								<div class="form-group">
 									<input placeholder="name" type="text" ng-model="meth.name" class="form-control input-sm" ng-blur="setMethName(meth, $event)" />
 								</div>
+
 								<div class="form-group">
 									<span class="">(</span>
 								</div>
+
+								<!-- meth.parameters -->
 								<div class="form-group">
 									<input placeholder="parameters" type="text" ng-model="meth.parameters" class="form-control input-sm" ng-blur="setMethParameters(meth, $event)" />
 								</div>
+
 								<div class="form-group">
 									<span class="">)</span>
 								</div>
+
 								<div class="form-group">
 									<span class="">: return </span>
 								</div>
+
+								<!-- meth.return -->
 								<div class="form-group">
 									<input placeholder="return" type="text" ng-model="meth.return" class="form-control input-sm" ng-blur="setMethReturn(meth, $event)" />
 								</div>
+
+								<!-- deleteMethod(model, $index, $event) -->
 								<div class="form-group">
 									<button type="button" class="btn btn-default btn-sm btn-delete" ng-click="deleteMethod(model, $index, $event)" title="delete method"><i class="glyphicon glyphicon-remove"></i></button>
 								</div>
@@ -125,8 +203,13 @@
 						</ul>
 						<div class="modelPanel" >
 							<div class="btn-group btn-group-vertical">
+
+								<!-- switchView($event) -->
 								<button type="button" class="btn btn-default" ng-click="switchView($event)" title="switch view"><i class="fa fa-th-list"></i></button>
+
+								<!-- addMethod(model) -->
 								<button type="button" class="btn btn-default" ng-click="addMethod(model)" title="add method"><i class="fa fa-plus"></i></button>
+
 							</div>
 						</div><!-- END modelPanel -->
 					</div>
