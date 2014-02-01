@@ -7,7 +7,8 @@ getset.controller("ClassDiagramCtrl", function($scope) {
 	/**
 	 * $scope vars
 	 */
-	$scope.models = [];
+	$scope.models	= [];
+	$scope.modeView = [{"text": true, "form": false}];
 
 	/**
 	 * [addAttribute description]
@@ -133,13 +134,20 @@ getset.controller("ClassDiagramCtrl", function($scope) {
 	 * @param  {[type]} event [description]
 	 * @return {[type]}       [description]
 	 */
-	$scope.switchView = function(event) {
-		var $btn = $(event.currentTarget),
-			$modEl = $btn.parents('.modelElement'),
-			$viewList = $modEl.children('ul').find('li.viewList'),
-			$formList = $modEl.children('ul').find('li.formList');
+	$scope.switchView = function(event, mode) {
+		var
+			$btn      = $(event.currentTarget),
+			$icon     = $btn.children('i'),
+			$model    = $btn.parents('.modelElement'),
+			$viewList = $model.children('ul').find('li.viewList'),
+			$formList = $model.children('ul').find('li.formList');
 
-		$btn.toggleClass('active');
+		
+		if($icon.hasClass('fa fa-eye')) {
+			$icon.attr('class','fa fa-th-list');
+		} else {
+			$icon.attr('class','fa fa-eye');
+		}
 
 		if($viewList.hasClass('hidden')) {
 			$viewList.removeClass('hidden').addClass('fadeInDown').removeClass('fadeOutDown');
@@ -149,7 +157,19 @@ getset.controller("ClassDiagramCtrl", function($scope) {
 			$formList.removeClass('hidden').addClass('fadeInUp').removeClass('fadeOutUp');
 		}
 
-		scrollToModel($modEl);
+		scrollToModel($model);
+	};
+
+	/**
+	 * [switchModeView description]
+	 * @param  {[type]} event [description]
+	 * @return {[type]}       [description]
+	 */
+	$scope.switchModeView = function(event) {
+		var $btn = $(event.currentTarget);
+
+		// TODO: implement function with switchView() and mode param
+		console.log($btn);
 	};
 
 	/**
@@ -166,7 +186,7 @@ getset.controller("ClassDiagramCtrl", function($scope) {
 });
 
 /**
- * [Attr description]
+ * [Class Attr description]
  * @param {[type]} vis  [description]
  * @param {[type]} name [description]
  * @param {[type]} mult [description]
@@ -180,7 +200,7 @@ function Attr(vis, name, mult ,type) {
 }
 
 /**
- * [Method description]
+ * [Class Method description]
  * @param {[type]} vis    [description]
  * @param {[type]} name   [description]
  * @param {[type]} params [description]
@@ -194,7 +214,7 @@ function Method(vis, name, params, ret) {
 }
 
 /**
- * [Model description]
+ * [Class Model description]
  * @param {[type]} className [description]
  */
 function Model(className) {
@@ -204,7 +224,7 @@ function Model(className) {
 }
 
 /**
- * [scrollToModel description]
+ * [function scrollToModel description]
  * @param  {[type]} $el [description]
  * @return {[type]}     [description]
  */
@@ -215,7 +235,7 @@ function scrollToModel($el) {
 }
 
 /**
- * [getValueFor description]
+ * [function getValueFor description]
  * @param  {[type]} $el [description]
  * @return {[type]}     [description]
  */
@@ -227,7 +247,7 @@ function getValueFor($el) {
 }
 
 /**
- * [getTagName description]
+ * [function getTagName description]
  * @param  {[type]} $el [description]
  * @return {[type]}     [description]
  */

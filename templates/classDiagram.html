@@ -11,17 +11,17 @@
 				<div class="btn-group">
 
 					<!-- addModel() -->
-					<button type="button" class="btn btn-default" ng-click="addModel()" title="new model"><i class="fa fa-plus"></i></button>
+					<button type="button" class="btn btn-default" ng-click="addModel()" title="New model"><i class="fa fa-plus"></i></button>
 
-					<div class="btn-group">
-					    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-					    	<span class="caret"></span>
-					    </button>
-					    <ul class="dropdown-menu">
-					    	<!-- window.print -->
-					      	<li><a href="javascript:window.print();"><i class="fa fa-print"></i> Print</a></</li>
-					    </ul>
-				  	</div>
+					<!-- switchModeView($event) -->
+					<button type="button" class="btn btn-default" ng-click="switchModeView($event)" title="Switch to mode Form" ng-switch on="modeView.text">
+						<i class="fa fa-eye" ng-switch-when="false"></i>
+						<i class="fa fa-th-list" ng-switch-default></i>
+					</button>
+
+					<!-- window.print -->
+					<a role="button" class="btn btn-default" href="javascript:window.print();"><i class="fa fa-print"></i></a>
+
 				</div>
 			</div><!-- END globalPanel -->
 		</div>
